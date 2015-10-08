@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textField: UITextField!
@@ -46,35 +46,52 @@ class ViewController: UIViewController {
         addNewTodo()
         
     }
+    
+    
+    @IBAction func deleteTodo(sender: UIButton) {
+        
+        
+    }
+    
 
-//    
-//    func editStudent() {
-//        let editStudent = Student(name: nameField.text!.lowercaseString, spiritAnimal: animalField.text!.lowercaseString, currentAction: actionField.text!.lowercaseString)
-//        roomInfo.text = newRoom.updateStudent(editStudent)
-//        roomInfo.backgroundColor = UIColor.grayColor()
-//        clearInfo()
-//        listStudents()
-//    }
-//    
-//    func listStudents() {
-//        roomInfo.text = "\(newRoom.roomName) Classroom: Student List \n"
-//        
-//        for (_, student) in newRoom.students {
-//            roomInfo.text = "\n\(roomInfo.text) \n Name:\(student.name)\n Spirit-Animal: \(student.spiritAnimal)\n Action: \(student.currentAction)\n Karma: \(student.karmaPoints)\n"
-//            
-//        }
-//        roomInfo.backgroundColor = UIColor.yellowColor()
-//    }
-//    
-//    func clearInfo() {
-//        nameField.text = " "
-//        animalField.text = " "
-//        actionField.text = " "
-//        searchField.text = " "
-//        roomInfo.backgroundColor = UIColor.whiteColor()
-//        
-//    }
+    
+      let songs = [
+          "Space Intro", "Fly Like an Eagle", "Wild Mountain", "Serenade", "Dance, Dance, Dance", "Mercury Blues", "Take the Money and Run", "Rock'n Me", "You Send Me", "Blue Odyssey"]
+    
+    let todoListTableIdentifier = "TodoListTableIdentifier"
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return songs.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(todoListTableIdentifier) as UITableViewCell!
+        
+        if(cell == nil) {
+            cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: todoListTableIdentifier)
+        }
+        
+        cell.textLabel?.text = songs[indexPath.row]
+        return cell
+    }
+    
+
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

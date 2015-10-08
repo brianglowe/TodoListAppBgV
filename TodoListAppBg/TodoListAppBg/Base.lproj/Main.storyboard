@@ -16,9 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1F-YN-nXu">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1F-YN-nXu">
                                 <rect key="frame" x="277" y="550" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0W7-IN-YFp"/>
                                 </connections>
@@ -50,6 +50,15 @@
                                     <segue destination="wqK-7E-CoI" kind="show" id="Rt9-Uu-eBb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAA-Zs-L9s">
+                                <rect key="frame" x="277" y="498" width="46" height="30"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="1" green="0.127030222" blue="0.22692228619999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteTodo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kXS-Yw-Sb9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -61,8 +70,10 @@
                             <constraint firstItem="wQp-Ln-OwV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VrE-Pd-GnR"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="x1F-YN-nXu" secondAttribute="bottom" constant="20" id="Xhr-PQ-8Tp"/>
                             <constraint firstItem="ow5-q3-TMw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-35.5" id="h3h-Eq-P6A"/>
+                            <constraint firstItem="nAA-Zs-L9s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jSN-Yd-vxg"/>
                             <constraint firstItem="wQp-Ln-OwV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="mw1-7T-35v"/>
                             <constraint firstItem="ow5-q3-TMw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oVt-oV-saG"/>
+                            <constraint firstItem="x1F-YN-nXu" firstAttribute="top" secondItem="nAA-Zs-L9s" secondAttribute="bottom" constant="22" id="pUO-Tn-kk0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -81,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="399" y="349"/>
         </scene>
-        <!--View Controller-->
+        <!--Todo List Table View Controller-->
         <scene sceneID="sDd-NB-ldv">
             <objects>
-                <viewController id="wqK-7E-CoI" sceneMemberID="viewController">
+                <viewController id="wqK-7E-CoI" customClass="TodoListTableViewController" customModule="TodoListAppBg" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GR8-We-Vwr"/>
                         <viewControllerLayoutGuide type="bottom" id="Dcx-oK-ttC"/>
@@ -100,6 +111,10 @@
                                     <constraint firstAttribute="width" constant="200" id="9Os-sJ-nJI"/>
                                     <constraint firstAttribute="height" constant="200" id="B1D-EK-qD0"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="wqK-7E-CoI" id="IjC-9A-koB"/>
+                                    <outlet property="delegate" destination="wqK-7E-CoI" id="yQY-qs-4mE"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4Q-bd-jdb">
                                 <rect key="frame" x="271" y="550" width="58" height="30"/>
