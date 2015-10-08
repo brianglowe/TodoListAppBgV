@@ -18,6 +18,7 @@ class ListOfTodos {
     
     func addTodo(newTodo: Todo) -> String {
         list[newTodo.name] = newTodo
+        print("Name of new todo: \(newTodo.name) & number of Todos in list: \(list.count)")
         return "You created a new Todo"
     }
     
